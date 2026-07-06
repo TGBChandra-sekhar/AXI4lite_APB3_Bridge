@@ -55,7 +55,7 @@ module axi_apb_bridge_top (
 
 
 
-    // ---------------- STAGE 0 ----------------
+    // STAGE 0 
     axi_stage0_capture u_s0 (
         .aclk(aclk),
         .aresetn(aresetn),
@@ -79,7 +79,7 @@ module axi_apb_bridge_top (
         .out_wdata(s0_wdata)
     );
 
-    // ---------------- STAGE 1 ----------------
+    // STAGE 1 
     axi_stage1_reg u_s1 (
         .aclk(aclk),
         .aresetn(aresetn),
@@ -93,7 +93,7 @@ module axi_apb_bridge_top (
         .out_wdata(s1_wdata)
     );
 
-    // ---------------- STAGE 2 ----------------
+    // STAGE 2 
     apb_stage2_setup u_s2 (
         .aclk(aclk),
         .aresetn(aresetn),
@@ -107,7 +107,7 @@ module axi_apb_bridge_top (
         .out_wdata(s2_wdata)
     );
 
-    // ---------------- STAGE 3 ----------------
+    // STAGE 3 
     apb_stage3_enable u_s3 (
         .aclk(aclk),
         .aresetn(aresetn),
@@ -144,31 +144,6 @@ endmodule
 
 
 
-module apb_stage2_setup (
-    input  wire        aclk,
-    input  wire        aresetn,
-    input  wire        in_valid,
-    input  wire        in_write,
-    input  wire [31:0] in_addr,
-    input  wire [31:0] in_wdata,
-    output reg         out_valid,
-    output reg         out_write,
-    output reg [31:0]  out_addr,
-    output reg [31:0]  out_wdata
-);
-    always @(posedge aclk or negedge aresetn) begin
-        if (!aresetn)
-            out_valid <= 0;
-        else begin
-            out_valid <= in_valid;
-            if (in_valid) begin
-                out_write <= in_write;
-                out_addr  <= in_addr;
-                out_wdata <= in_wdata;
-            end
-        end
-    end
-endmodule
 
 
 
