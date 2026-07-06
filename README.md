@@ -127,6 +127,14 @@ This guarantees reliability even under aggressive AXI timing.
 This bridge prioritizes **correctness and timing closure** over raw throughput, making it well-suited for real-world FPGA designs where meeting timing is critical.
 
 ---
+## Tools Used
+  - Xilinx Vivado
+  - vitis 
+  - GitHub
+    
 
-## Author
-Designed and implemented as part of an FPGA protocol-integration and timing-optimization project.
+---
+##  Author
+**Chandra Sekhar Tanuku**
+* Focus Areas: **VLSI Design, FPGA, Digital Communication Systems**
+---
